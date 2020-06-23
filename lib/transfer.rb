@@ -7,7 +7,7 @@ class Transfer
     @sender = sender
     @receiver = receiver
     @status = "pending"
-    @amount = 50
+    @amount = amount
   end
   
   def valid?
@@ -15,7 +15,6 @@ class Transfer
   end
 
  def execute_transaction
-   binding.pry
     if valid? && status == "pending" && sender.balance > @amount
       @sender.balance -= @amount
       @receiver.balance += @amount
